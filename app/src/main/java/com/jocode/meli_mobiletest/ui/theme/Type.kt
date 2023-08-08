@@ -1,4 +1,4 @@
-package com.example.meli_mobiletest.ui.theme
+package com.jocode.meli_mobiletest.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

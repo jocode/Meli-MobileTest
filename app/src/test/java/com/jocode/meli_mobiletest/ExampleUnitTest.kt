@@ -1,4 +1,4 @@
-package com.example.meli_mobiletest
+package com.jocode.meli_mobiletest
 
 import org.junit.Test
 

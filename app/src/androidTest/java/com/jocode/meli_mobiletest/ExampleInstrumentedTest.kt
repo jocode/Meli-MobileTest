@@ -1,4 +1,4 @@
-package com.example.meli_mobiletest
+package com.jocode.meli_mobiletest
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
