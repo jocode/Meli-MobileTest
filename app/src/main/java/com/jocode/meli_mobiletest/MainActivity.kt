@@ -10,13 +10,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.jocode.meli_mobiletest.ui.theme.MeliMobileTestTheme
+import com.jocode.ui.theme.MeliMobileTestTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MeliMobileTestTheme {
+            MeliMobileTestTheme(
+                dynamicColor = false
+            ) {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
