@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.meli_mobiletest"
+    namespace = "com.jocode.meli_mobiletest"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.meli_mobiletest"
+        applicationId = "com.jocode.meli_mobiletest"
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
         versionCode = ProjectConfig.versionCode
@@ -36,7 +36,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.6"
+        kotlinCompilerExtensionVersion = ProjectConfig.composeCompilerVersion
     }
 }
 
@@ -66,4 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Modules
+    implementation(project(":core:ui"))
 }
