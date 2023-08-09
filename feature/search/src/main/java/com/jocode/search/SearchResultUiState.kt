@@ -1,4 +1,4 @@
-package com.jocode.search.presentation
+package com.jocode.search
 
 import com.jocode.model.search.Product
 import com.jocode.utils.UiText

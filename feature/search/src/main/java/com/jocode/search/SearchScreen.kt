@@ -1,4 +1,4 @@
-package com.jocode.search.presentation
+package com.jocode.search
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
