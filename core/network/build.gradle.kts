@@ -7,4 +7,6 @@ dependencies {
     "implementation"(libs.okhttp.logging.interceptor)
     "implementation"(libs.retrofit)
     "implementation"(libs.converter.moshi)
+
+    "implementation"(project(":core:model"))
 }
