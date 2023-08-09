@@ -1,4 +1,4 @@
-package com.jocode
+package com.jocode.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row

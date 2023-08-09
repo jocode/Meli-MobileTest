@@ -45,4 +45,4 @@ object NetworkModule {
 
 }
 
-private const val BASE_URL = "https://api.mercadolibre.com/sites/MLA/"
+private const val BASE_URL = "https://api.mercadolibre.com/sites/MCO/"

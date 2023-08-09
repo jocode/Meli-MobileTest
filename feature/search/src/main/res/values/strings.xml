@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Home -->
-    <string name="search">Search</string>
-    <string name="search_description">What are you looking for?</string>
-    <string name="clear_search_description">Clear search</string>
-    <string name="search_placeholder">Search in Meli</string>
-    <string name="empty_products">Ups! We didn\'t find anything.</string>
-    <string name="image_description">Product image</string>
+    <string name="lookup_search_hint">Search</string>
+    <string name="looking_for_something">What do you want to buy today?</string>
+    <string name="something_went_wrong">Something went wrong\n</string>
+    <string name="available_quantity">Available %1$d</string>
 </resources>

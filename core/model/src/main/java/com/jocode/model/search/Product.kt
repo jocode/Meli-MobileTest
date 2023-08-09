@@ -8,4 +8,5 @@ data class Product(
     val soldQuantity: Int,
     val condition: String,
     val thumbnail: String,
+    val currencyId: String,
 )

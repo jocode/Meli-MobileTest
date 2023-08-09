@@ -20,6 +20,8 @@ data class ProductDTO(
     val soldQuantity: Int,
     val condition: String,
     val thumbnail: String,
+    @field:Json(name = "currency_id")
+    val currencyId: String,
 ) {
     fun toDomain(): Product {
         return Product(
@@ -29,7 +31,8 @@ data class ProductDTO(
             availableQuantity = availableQuantity,
             soldQuantity = soldQuantity,
             condition = condition,
-            thumbnail = thumbnail
+            thumbnail = thumbnail,
+            currencyId = currencyId
         )
     }
 }

@@ -62,6 +62,9 @@ dependencies {
     // Coil
     implementation(libs.coil)
 
+    // Lottie
+    implementation(libs.lottie)
+
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 

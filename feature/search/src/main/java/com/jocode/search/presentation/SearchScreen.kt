@@ -21,13 +21,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.jocode.SearchToolbar
+import com.jocode.common.utils.toLocalCurrency
+import com.jocode.components.LottieContent
+import com.jocode.components.SearchToolbar
+import com.jocode.meli_mobiletest.R
 import com.jocode.model.search.Product
 import com.jocode.ui.theme.surfaceColor
 
@@ -41,6 +45,7 @@ fun SearchScreen(
     onSearchItemClick: (String) -> Unit = {},
     state: SearchResultUiState = SearchResultUiState.Loading,
 ) {
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -55,11 +60,17 @@ fun SearchScreen(
 
         when (state) {
             SearchResultUiState.EmptyQuery -> {
-
+                LottieContent(
+                    animationRes = R.raw.search,
+                    message = stringResource(id = R.string.looking_for_something)
+                )
             }
 
             is SearchResultUiState.LoadFailed -> {
-                Text(text = state.message)
+                LottieContent(
+                    animationRes = R.raw.error,
+                    message = state.message.asString()
+                )
             }
 
             SearchResultUiState.Loading -> {
@@ -140,14 +151,17 @@ private fun SearchItem(
                 maxLines = 2
             )
             Text(
-                text = "$${product.price}",
+                text = product.price.toLocalCurrency(),
                 style = MaterialTheme.typography.titleMedium,
                 overflow = TextOverflow.Ellipsis,
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(top = 8.dp)
             )
             Text(
-                text = "Disponible: ${product.availableQuantity}",
+                text = stringResource(
+                    id = R.string.available_quantity,
+                    product.availableQuantity
+                ),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.Light
@@ -169,7 +183,8 @@ fun ProductItemPreview() {
             thumbnail = "https://http2.mlstatic.com/D_NQ_NP_2X_932878-MLA45602395500_042021-F.webp",
             availableQuantity = 1,
             soldQuantity = 1,
-            condition = "new"
+            condition = "new",
+            currencyId = "ARS"
         )
     )
 }
