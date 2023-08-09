@@ -6,6 +6,6 @@ import javax.inject.Inject
 class GetSearchItemUseCase @Inject constructor(
     private val searchRepository: SearchRepository,
 ) {
-    suspend operator fun invoke(query: String) =
-        searchRepository.getSearchContent(query)
+    suspend operator fun invoke(query: String, siteId: String = "MCO") =
+        searchRepository.getSearchContent(query, siteId)
 }

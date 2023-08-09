@@ -11,8 +11,11 @@ import javax.inject.Inject
 internal class SearchRepositoryImpl @Inject constructor(
     private val searchApi: SearchApi,
 ) : SearchRepository {
-    override suspend fun getSearchContent(query: String): Result<Flow<List<Product>>> {
-        val response = makeSafeRequest { searchApi.searchProducts(query) }
+    override suspend fun getSearchContent(
+        query: String,
+        siteId: String,
+    ): Result<Flow<List<Product>>> {
+        val response = searchApi.searchProducts(query = query, siteId = siteId).makeSafeRequest()
         return response.fold(
             onSuccess = { data ->
                 val items = data.results.map {
@@ -20,8 +23,8 @@ internal class SearchRepositoryImpl @Inject constructor(
                 }
                 Result.success(flowOf(items))
             },
-            onError = { code, message ->
-                Result.failure(Exception("Error $code: $message"))
+            onError = { _, message ->
+                Result.failure(Exception(message))
             },
             onException = {
                 Result.failure(it)
