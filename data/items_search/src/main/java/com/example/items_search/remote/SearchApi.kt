@@ -3,6 +3,7 @@ package com.example.items_search.remote
 import com.example.items_search.remote.dto.SearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -17,8 +18,9 @@ interface SearchApi {
      * @param offset offset of items
      * @return [SearchResponse]
      */
-    @GET("search")
+    @GET("/sites/{siteId}/search")
     suspend fun searchProducts(
+        @Path("siteId") siteId: String,
         @Query("q") query: String,
         @Query("limit") limit: String = "10",
         @Query("offset") offset: Int = 0,

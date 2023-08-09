@@ -4,5 +4,5 @@ import com.jocode.model.search.Product
 import kotlinx.coroutines.flow.Flow
 
 interface SearchRepository {
-    suspend fun getSearchContent(query: String): Result<Flow<List<Product>>>
+    suspend fun getSearchContent(query: String, siteId: String): Result<Flow<List<Product>>>
 }

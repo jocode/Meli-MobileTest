@@ -4,17 +4,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-suspend fun <T : Any> makeSafeRequest(
-    execute: suspend () -> Response<T>,
-): NetworkResponse<T> {
+/**
+ * Safely processes a network response and returns a [NetworkResponse] object.
+ * This function is designed to handle network responses and provide appropriate
+ * success or error outcomes.
+ */
+suspend fun <T : Any> Response<T>.makeSafeRequest(): NetworkResponse<T> {
     return withContext(Dispatchers.IO) {
         try {
-            val response = execute()
-            val body = response.body()
-            if (response.isSuccessful && body != null) {
+            val body = body()
+            if (isSuccessful && body != null) {
                 NetworkResponse.Success(body)
             } else {
-                NetworkResponse.Error(code = response.code(), message = response.message())
+                NetworkResponse.Error(code = code(), message = message())
             }
         } catch (e: Exception) {
             NetworkResponse.Failure(e)
