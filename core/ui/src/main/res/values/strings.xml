@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back">Back</string>
+    <string name="search">Search</string>
+    <string name="clear_search_text_content_desc">Clear search</string>
+</resources>

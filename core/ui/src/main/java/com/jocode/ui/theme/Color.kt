@@ -1,5 +1,8 @@
 package com.jocode.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF686000)
@@ -64,4 +67,16 @@ val md_theme_dark_surfaceTint = Color(0xFFD7C935)
 val md_theme_dark_outlineVariant = Color(0xFF49473A)
 val md_theme_dark_scrim = Color(0xFF000000)
 
-val seed = Color(0xFFFFF059)
+val BrandColor = Color(0xFFFFF059)
+
+val ColorScheme.statusBarColor
+    @Composable
+    get() = if (!isSystemInDarkTheme()) BrandColor else BrandColor
+
+val ColorScheme.brandColor
+    @Composable
+    get() = if (!isSystemInDarkTheme()) BrandColor else BrandColor
+
+val ColorScheme.surfaceColor
+    @Composable
+    get() = if (!isSystemInDarkTheme()) md_theme_light_surface else md_theme_dark_surfaceVariant

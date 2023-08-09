@@ -37,6 +37,14 @@ dependencies {
     kapt libs.hilt.android.compiler
     implementation libs.hilt.android
 
+    testImplementation(libs.junit)
+    testImplementation(libs.androidx.test.ext.junit)
+    testImplementation(libs.truth)
+
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.truth)
+
 //    testImplementation Testing.junit4
 //    testImplementation Testing.junitAndroidExt
 //    testImplementation Testing.truth

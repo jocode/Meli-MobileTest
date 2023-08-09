@@ -16,3 +16,8 @@ rootProject.name = "Meli-MobileTest"
 include ':app'
 include ':core:ui'
 include ':core:network'
+include ':feature:search'
+include ':core:model'
+include ':core:domain'
+include ':core:common'
+include ':data:search-items'
