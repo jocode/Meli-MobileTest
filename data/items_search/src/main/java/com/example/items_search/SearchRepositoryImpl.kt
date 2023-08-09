@@ -1,14 +1,14 @@
-package com.example.search_items
+package com.example.items_search
 
+import com.example.items_search.remote.SearchApi
 import com.jocode.model.search.Product
 import com.jocode.network.common.fold
 import com.jocode.network.common.makeSafeRequest
-import com.jocode.network.retrofit.SearchApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
-class SearchRepositoryImpl @Inject constructor(
+internal class SearchRepositoryImpl @Inject constructor(
     private val searchApi: SearchApi,
 ) : SearchRepository {
     override suspend fun getSearchContent(query: String): Result<Flow<List<Product>>> {

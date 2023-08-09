@@ -1,4 +1,4 @@
-package com.example.search_items
+package com.example.items_search
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

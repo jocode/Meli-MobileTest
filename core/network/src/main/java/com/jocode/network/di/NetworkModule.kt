@@ -1,6 +1,5 @@
 package com.jocode.network.di
 
-import com.jocode.network.retrofit.SearchApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,13 +34,6 @@ object NetworkModule {
             .client(okHttpClient)
             .build()
     }
-
-    @Singleton
-    @Provides
-    fun provideSearchApi(retrofit: Retrofit): SearchApi {
-        return retrofit.create(SearchApi::class.java)
-    }
-
 
 }
 
