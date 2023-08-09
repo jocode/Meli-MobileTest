@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings for network failure messages -->
+    <string name="unknown_host_exception">No internet connection. Please check your internet connection and try again.</string>
+    <string name="io_exception">Network Error. An error occurred while communicating with the server. Please check your internet connection and try again.</string>
+    <string name="socket_timeout_exception">Network Error: The connection timed out. Please check your internet connection and try again.</string>
+
+    <!-- Strings for HTTP error messages -->
+    <string name="service_unavailable_error_message">Service Unavailable: The server is currently unable to handle the request. Please try again later.</string>
+    <string name="internal_server_error_message">Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.</string>
+    <string name="not_found_error_message">Not Found: The requested resource could not be found on the server.</string>
+    <string name="invalid_request_error_message">Invalid Request: The server could not understand the request due to invalid syntax or missing parameters.</string>
+    <string name="unauthorized_error_message">Unauthorized: Access to the requested resource requires authentication or authorization.</string>
+    <string name="unknown_error">An unknown error occurred.</string>
+
+</resources>
