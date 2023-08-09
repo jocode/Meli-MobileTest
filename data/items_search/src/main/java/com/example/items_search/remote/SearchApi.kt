@@ -1,6 +1,6 @@
-package com.jocode.network.retrofit
+package com.example.items_search.remote
 
-import com.jocode.network.searchs_items.SearchResponse
+import com.example.items_search.remote.dto.SearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

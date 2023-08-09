@@ -1,6 +1,6 @@
 package com.jocode.domain
 
-import com.example.search_items.SearchRepository
+import com.example.items_search.SearchRepository
 import javax.inject.Inject
 
 class GetSearchItemUseCase @Inject constructor(

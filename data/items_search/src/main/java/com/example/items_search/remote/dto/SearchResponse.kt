@@ -1,4 +1,4 @@
-package com.jocode.network.searchs_items
+package com.example.items_search.remote.dto
 
 import com.jocode.model.search.Product
 import com.squareup.moshi.Json

@@ -1,4 +1,4 @@
-package com.example.search_items
+package com.example.items_search
 
 import com.jocode.model.search.Product
 import kotlinx.coroutines.flow.Flow

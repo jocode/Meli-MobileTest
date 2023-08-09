@@ -3,5 +3,5 @@ apply {
 }
 dependencies {
     "implementation"(project(":core:model"))
-    "implementation"(project(":data:search-items"))
+    "implementation"(project(":data:items_search"))
 }
