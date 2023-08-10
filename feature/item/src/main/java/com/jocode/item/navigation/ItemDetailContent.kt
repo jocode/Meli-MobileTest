@@ -56,7 +56,7 @@ fun ItemDetailContent(
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
             fontSize = 16.sp,
-            fontWeight = FontWeight.Light
+            fontWeight = FontWeight.Normal
         )
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)

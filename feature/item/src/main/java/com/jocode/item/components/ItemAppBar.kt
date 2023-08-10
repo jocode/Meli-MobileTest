@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.jocode.ui.theme.brandColor
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,8 +33,8 @@ fun ItemAppBar(
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.brandColor,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+            navigationIconContentColor = Color.Black,
+            titleContentColor = Color.Black,
         )
     )
 }
