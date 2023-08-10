@@ -1,12 +1,10 @@
 package com.jocode.meli_mobiletest.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
+import com.jocode.item.navigation.itemDetailNavigation
+import com.jocode.models.toParcelable
 import com.jocode.navigation.Screens
 import com.jocode.search.navigation.searchNavigation
 
@@ -19,20 +17,26 @@ fun AppNavGraph(
         startDestination = startDestination,
         navController = navController
     ) {
-        searchNavigation(onNavigateToItemDetail = {
-            navController.navigate(Screens.Detail.passItemId(it))
-        })
+        searchNavigation(
+            onNavigateToItemDetail = { item ->
+                // Pass the item to the detail screen
+                navController.currentBackStackEntry?.savedStateHandle?.set(
+                    Screens.Detail.ITEM_DETAIL_KEY,
+                    item.toParcelable()
+                )
 
-        composable(
-            route = Screens.Detail.route,
-            arguments = listOf(
-                navArgument(name = Screens.Detail.ITEM_ID_NAV_KEY) {
-                    type = NavType.StringType
-                    nullable = false
-                }
-            )
-        ) {
-            Text(text = "Detail Screen ${it.arguments?.getString(Screens.Detail.ITEM_ID_NAV_KEY)}")
-        }
+                navController.navigate(
+                    Screens.Detail.passItemId(
+                        productId = item.id
+                    )
+                )
+            })
+
+        itemDetailNavigation(
+            navController = navController,
+            onNavigateBack = {
+                navController.popBackStack()
+            }
+        )
     }
 }

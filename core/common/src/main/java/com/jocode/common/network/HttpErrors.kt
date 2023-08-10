@@ -1,4 +1,4 @@
-package com.jocode.network.common
+package com.jocode.common.network
 
 import com.jocode.meli_mobiletest.R
 

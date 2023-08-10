@@ -42,7 +42,7 @@ fun SearchScreen(
     onSearchQueryChanged: (String) -> Unit = {},
     onSearchQuerySubmit: (String) -> Unit = {},
     onBackClick: () -> Unit = {},
-    onSearchItemClick: (String) -> Unit = {},
+    onSearchItemClick: (Product) -> Unit = {},
     state: SearchResultUiState = SearchResultUiState.Loading,
 ) {
 
@@ -101,13 +101,13 @@ fun LoadingView() {
 private fun SearchContent(
     modifier: Modifier = Modifier,
     items: List<Product>,
-    onItemClick: (String) -> Unit,
+    onItemClick: (Product) -> Unit,
 ) {
     LazyColumn {
         items(items = items) { item ->
             SearchItem(
                 modifier = modifier.clickable {
-                    onItemClick(item.id)
+                    onItemClick(item)
                 },
                 product = item
             )

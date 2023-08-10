@@ -5,12 +5,13 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.jocode.model.search.Product
 import com.jocode.navigation.Screens
 import com.jocode.search.SearchScreen
 import com.jocode.search.SearchViewModel
 
 fun NavGraphBuilder.searchNavigation(
-    onNavigateToItemDetail: (String) -> Unit,
+    onNavigateToItemDetail: (Product) -> Unit,
 ) {
     composable(route = Screens.Search.route) {
 

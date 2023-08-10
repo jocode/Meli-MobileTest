@@ -3,10 +3,10 @@ package com.jocode.search
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jocode.common.network.getErrorMessage
 import com.jocode.common.result.Result
 import com.jocode.common.result.asResult
 import com.jocode.domain.GetSearchItemUseCase
-import com.jocode.network.common.getErrorMessage
 import com.jocode.utils.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -59,7 +59,6 @@ class SearchViewModel @Inject constructor(
                     }
                 }
                 .onFailure { error ->
-                    Timber.e("Error: $error")
                     _uiState.update {
                         SearchResultUiState.LoadFailed(
                             UiText.StringResource(error.getErrorMessage())

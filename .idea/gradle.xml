@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/items_search" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/item" />
             <option value="$PROJECT_DIR$/feature/search" />
           </set>
         </option>

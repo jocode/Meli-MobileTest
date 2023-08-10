@@ -10,7 +10,7 @@ internal class ItemRepositoryImpl @Inject constructor(
     private val itemApi: ItemApi,
 ) : ItemRepository {
     override suspend fun getProductDescription(itemId: String): Result<ProductDescription> {
-        val response = itemApi.getProductDescription(itemId).makeSafeRequest()
+        val response = makeSafeRequest { itemApi.getProductDescription(itemId) }
 
         return response.fold(
             onSuccess = { data ->

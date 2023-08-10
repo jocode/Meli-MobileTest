@@ -1,7 +1,7 @@
-package com.jocode.network.common
+package com.jocode.common.network
 
+import com.jocode.common.network.HttpErrors.getHttpErrorMessage
 import com.jocode.meli_mobiletest.R
-import com.jocode.network.common.HttpErrors.getHttpErrorMessage
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.UnknownHostException
