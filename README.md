@@ -1,15 +1,16 @@
 # Meli - Android App :star:
 
 This is an Android app that shows a list of products from Mercado Libre and the detail of each one.
-The app is built entirely with Kotlin and Jetpack compose and modularized.
+The app is built entirely with Kotlin, Jetpack compose and is modularized.
 
-- [x] Fetches data from the Mercado Libre API
+- [x] Fetch data from the Mercado Libre API
 - [x] Shows a list of products
-- [x] Shows the detail of each product
-- [x] Shows the description of each product
+- [x] Shows the detail of products
 - [x] Pagination for search results
 - [x] Error handling
 - [x] Material Dynamic Theme support (Disabled by default) and dark and light mode.
+- [x] Multi-modular architecture. Following the Clean Architecture and MVVM pattern for the
+  UI.
 - [x] Unit tests
 
 ## Requirements
@@ -121,6 +122,7 @@ For unit testing the application we use:
 
 - JUnit
 - Mockk
-- MockWebServer
+- Turbine
 - Core Testing
+- Truth
 - Coroutines Test
