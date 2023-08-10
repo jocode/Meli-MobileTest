@@ -72,25 +72,20 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.androidx.test.ext.junit)
     testImplementation(libs.truth)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
+    testImplementation(libs.androidx.compose.ui.test.junit4)
+    testImplementation(libs.mockwebserver)
+    testImplementation(libs.assertk)
 
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.truth)
-
-    /*
-    testImplementation Testing.coroutines
-    testImplementation Testing.turbine
-    testImplementation Testing.composeUiTest
-    testImplementation Testing.mockk
-    testImplementation Testing.mockWebServer
-
-    androidTestImplementation Testing.junit4
-    androidTestImplementation Testing.junitAndroidExt
-    androidTestImplementation Testing.truth
-    androidTestImplementation Testing.coroutines
-    androidTestImplementation Testing.turbine
-    androidTestImplementation Testing.composeUiTest
-    androidTestImplementation Testing.mockk
-    androidTestImplementation Testing.mockWebServer
-    androidTestImplementation Testing.hiltTesting*/
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.mockk)
+    androidTestImplementation(libs.turbine)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.mockwebserver)
+    androidTestImplementation(libs.hilt.android.testing)
 }

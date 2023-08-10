@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jocode.common.network.getErrorMessage
 import com.jocode.domain.GetItemDescriptionUseCase
+import com.jocode.meli_mobiletest.R
 import com.jocode.model.search.ProductDetail
 import com.jocode.models.ItemDetail
 import com.jocode.navigation.Screens
@@ -29,13 +30,22 @@ class ItemDetailViewModel @Inject constructor(
     val uiState: StateFlow<ItemDetailUiState> = _uiState.asStateFlow()
 
     init {
-        val productId = savedStateHandle.get<String>(Screens.Detail.ITEM_ID_NAV_KEY)
+        try {
+            val productId = savedStateHandle.get<String>(Screens.Detail.ITEM_ID_NAV_KEY)
+            productId?.let {
+                getProductDescription(it)
+            }
+            observeProductDetail()
 
-        productId?.let {
-            getProductDescription(it)
+        } catch (e: Exception) {
+            _uiState.update {
+                ItemDetailUiState.LoadFailed(
+                    UiText.StringResource(R.string.item_load_failed)
+                )
+            }
         }
 
-        observeProductDetail()
+
     }
 
     private fun getProductDescription(productId: String) {
