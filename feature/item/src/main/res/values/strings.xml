@@ -7,4 +7,5 @@
     <string name="sold_by">%1$s | %2$d sold</string>
     <string name="new_product">New</string>
     <string name="used_product">Used</string>
+    <string name="item_load_failed">An error occurred while loading the product.</string>
 </resources>
