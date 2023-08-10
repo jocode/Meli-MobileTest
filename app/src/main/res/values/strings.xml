@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Meli-MobileTest</string>
+    <string name="app_name" translatable="false">MeliApp</string>
 
     <!-- Home -->
     <string name="search">Search</string>

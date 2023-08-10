@@ -3,7 +3,7 @@
     <string name="product">Product</string>
     <string name="description">Description</string>
     <string name="buy_now">Buy now</string>
-    <string name="add_to_cart">Agregar al carrito</string>
+    <string name="add_to_cart">Add to cart</string>
     <string name="sold_by">%1$s | %2$d sold</string>
     <string name="new_product">New</string>
     <string name="used_product">Used</string>
