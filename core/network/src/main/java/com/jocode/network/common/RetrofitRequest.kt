@@ -9,14 +9,17 @@ import retrofit2.Response
  * This function is designed to handle network responses and provide appropriate
  * success or error outcomes.
  */
-suspend fun <T : Any> Response<T>.makeSafeRequest(): NetworkResponse<T> {
+suspend fun <T : Any> makeSafeRequest(
+    execute: suspend () -> Response<T>,
+): NetworkResponse<T> {
     return withContext(Dispatchers.IO) {
         try {
-            val body = body()
-            if (isSuccessful && body != null) {
+            val response = execute()
+            val body = response.body()
+            if (response.isSuccessful && body != null) {
                 NetworkResponse.Success(body)
             } else {
-                NetworkResponse.Error(code = code(), message = message())
+                NetworkResponse.Error(code = response.code(), message = response.message())
             }
         } catch (e: Exception) {
             NetworkResponse.Failure(e)

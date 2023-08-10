@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -79,5 +80,7 @@ dependencies {
 
     // Modules
     implementation(project(":core:ui"))
+    implementation(project(":core:model"))
     implementation(project(":feature:search"))
+    implementation(project(":feature:item"))
 }

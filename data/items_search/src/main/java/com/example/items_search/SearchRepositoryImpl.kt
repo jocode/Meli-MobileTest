@@ -15,7 +15,7 @@ internal class SearchRepositoryImpl @Inject constructor(
         query: String,
         siteId: String,
     ): Result<Flow<List<Product>>> {
-        val response = searchApi.searchProducts(query = query, siteId = siteId).makeSafeRequest()
+        val response = makeSafeRequest { searchApi.searchProducts(query = query, siteId = siteId) }
         return response.fold(
             onSuccess = { data ->
                 val items = data.results.map {

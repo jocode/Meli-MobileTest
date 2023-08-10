@@ -15,7 +15,7 @@ data class Product(
  * Base interface for product-related domain entities.
  * This interface defines common properties that products may have.
  */
-internal interface ProductBase {
+interface ProductBase {
     val id: String
     val title: String
     val price: Double

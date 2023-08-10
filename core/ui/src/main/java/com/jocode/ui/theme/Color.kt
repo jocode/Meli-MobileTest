@@ -66,10 +66,26 @@ val md_theme_dark_outlineVariant = Color(0xFF49473A)
 val md_theme_dark_scrim = Color(0xFF000000)
 
 val BrandColor = Color(0xFFFFF059)
+val NavBarColor = Color(0xFFF7D415)
+val primaryButtonColor = Color(0xFF3782FC)
+val secondaryButtonColor = Color(0xFFE6ECfE)
+val onSecondaryButtonColor = Color(0xFF557ED0)
+
+val Color.Companion.PrimaryButton
+    @Composable
+    get() = primaryButtonColor
+
+val Color.Companion.SecondaryButton
+    @Composable
+    get() = secondaryButtonColor
+
+val Color.Companion.OnSecondaryButton
+    @Composable
+    get() = onSecondaryButtonColor
 
 val ColorScheme.statusBarColor
     @Composable
-    get() = if (!isSystemInDarkTheme()) BrandColor else BrandColor
+    get() = if (!isSystemInDarkTheme()) NavBarColor else NavBarColor
 
 val ColorScheme.brandColor
     @Composable
