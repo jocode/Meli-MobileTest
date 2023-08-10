@@ -20,7 +20,7 @@ interface SearchApi {
      */
     @GET("/sites/{siteId}/search")
     suspend fun searchProducts(
-        @Path("siteId") siteId: String,
+        @Path("siteId") siteId: String = "MCO",
         @Query("q") query: String,
         @Query("limit") limit: String = "10",
         @Query("offset") offset: Int = 0,

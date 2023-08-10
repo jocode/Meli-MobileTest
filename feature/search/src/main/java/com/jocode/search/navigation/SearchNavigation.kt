@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.jocode.model.search.Product
 import com.jocode.navigation.Screens
 import com.jocode.search.SearchScreen
@@ -18,6 +19,8 @@ fun NavGraphBuilder.searchNavigation(
         val searchViewModel: SearchViewModel = hiltViewModel()
         val searchQuery by searchViewModel.searchQuery
         val uiState by searchViewModel.uiState.collectAsState()
+        val searchResults =
+            searchViewModel.searchResults.collectAsState().value.collectAsLazyPagingItems()
 
         SearchScreen(
             searchQuery = searchQuery,
@@ -25,6 +28,7 @@ fun NavGraphBuilder.searchNavigation(
             onSearchQuerySubmit = searchViewModel::onSearchQuerySubmit,
             onSearchItemClick = onNavigateToItemDetail,
             state = uiState,
+            searchResults = searchResults,
             onBackClick = {}
         )
     }

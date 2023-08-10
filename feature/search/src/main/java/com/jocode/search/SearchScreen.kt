@@ -1,5 +1,6 @@
 package com.jocode.search
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
@@ -26,6 +26,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.items
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.jocode.common.utils.toLocalCurrency
@@ -39,11 +42,12 @@ import com.jocode.ui.theme.surfaceColor
 fun SearchScreen(
     modifier: Modifier = Modifier,
     searchQuery: String = "",
+    state: SearchResultUiState = SearchResultUiState.Loading,
+    searchResults: LazyPagingItems<Product>,
     onSearchQueryChanged: (String) -> Unit = {},
     onSearchQuerySubmit: (String) -> Unit = {},
     onBackClick: () -> Unit = {},
     onSearchItemClick: (Product) -> Unit = {},
-    state: SearchResultUiState = SearchResultUiState.Loading,
 ) {
 
     Column(
@@ -77,10 +81,45 @@ fun SearchScreen(
                 LoadingView()
             }
 
-            is SearchResultUiState.Success -> {
-                SearchContent(
-                    items = state.data,
+            SearchResultUiState.Loaded -> {
+                SearchContentPagination(
+                    searchResults = searchResults,
                     onItemClick = onSearchItemClick
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SearchContentPagination(
+    searchResults: LazyPagingItems<Product>,
+    onItemClick: (Product) -> Unit,
+) {
+    when (val state = searchResults.loadState.refresh) {
+        is LoadState.Error -> {
+            Toast.makeText(
+                LocalContext.current,
+                state.error.localizedMessage,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        LoadState.Loading -> {
+            LoadingView()
+        }
+
+        is LoadState.NotLoading -> Unit
+    }
+
+    LazyColumn {
+        items(searchResults) { item ->
+            item?.let {
+                SearchItem(
+                    modifier = Modifier.clickable {
+                        onItemClick(item)
+                    },
+                    product = item
                 )
             }
         }
@@ -94,24 +133,6 @@ fun LoadingView() {
         contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator()
-    }
-}
-
-@Composable
-private fun SearchContent(
-    modifier: Modifier = Modifier,
-    items: List<Product>,
-    onItemClick: (Product) -> Unit,
-) {
-    LazyColumn {
-        items(items = items) { item ->
-            SearchItem(
-                modifier = modifier.clickable {
-                    onItemClick(item)
-                },
-                product = item
-            )
-        }
     }
 }
 
