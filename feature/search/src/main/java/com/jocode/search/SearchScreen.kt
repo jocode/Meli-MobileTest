@@ -31,12 +31,14 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.jocode.common.network.getErrorMessage
 import com.jocode.common.utils.toLocalCurrency
 import com.jocode.components.LottieContent
 import com.jocode.components.SearchToolbar
 import com.jocode.meli_mobiletest.R
 import com.jocode.model.search.Product
 import com.jocode.ui.theme.surfaceColor
+import timber.log.Timber
 
 @Composable
 fun SearchScreen(
@@ -70,13 +72,6 @@ fun SearchScreen(
                 )
             }
 
-            is SearchResultUiState.LoadFailed -> {
-                LottieContent(
-                    animationRes = R.raw.error,
-                    message = state.message.asString()
-                )
-            }
-
             SearchResultUiState.Loading -> {
                 LoadingView()
             }
@@ -98,11 +93,10 @@ fun SearchContentPagination(
 ) {
     when (val state = searchResults.loadState.refresh) {
         is LoadState.Error -> {
-            Toast.makeText(
-                LocalContext.current,
-                state.error.localizedMessage,
-                Toast.LENGTH_SHORT
-            ).show()
+            LottieContent(
+                animationRes = R.raw.error,
+                message = stringResource(id = state.error.getErrorMessage())
+            )
         }
 
         LoadState.Loading -> {
@@ -122,6 +116,10 @@ fun SearchContentPagination(
                     product = item
                 )
             }
+        }
+
+        item {
+            LoadingItems()
         }
     }
 }
@@ -189,6 +187,18 @@ private fun SearchItem(
             )
 
         }
+    }
+}
+
+@Composable
+fun LoadingItems() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        CircularProgressIndicator()
     }
 }
 
