@@ -5,11 +5,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.jocode.components.LottieContent
 import com.jocode.item.components.ItemAppBar
 import com.jocode.item.navigation.ItemDetailContent
 import com.jocode.meli_mobiletest.R
@@ -45,7 +45,10 @@ fun ItemDetailScreen(
                 }
 
                 is ItemDetailUiState.LoadFailed -> {
-                    Text(text = "${uiState.message}")
+                    LottieContent(
+                        animationRes = R.raw.error,
+                        message = uiState.message.asString()
+                    )
                 }
             }
         }

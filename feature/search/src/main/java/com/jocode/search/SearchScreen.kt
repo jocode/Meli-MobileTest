@@ -1,6 +1,5 @@
 package com.jocode.search
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -38,7 +37,6 @@ import com.jocode.components.SearchToolbar
 import com.jocode.meli_mobiletest.R
 import com.jocode.model.search.Product
 import com.jocode.ui.theme.surfaceColor
-import timber.log.Timber
 
 @Composable
 fun SearchScreen(
