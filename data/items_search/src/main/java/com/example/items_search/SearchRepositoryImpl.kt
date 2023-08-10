@@ -1,35 +1,26 @@
 package com.example.items_search
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.example.items_search.remote.SearchApi
+import com.example.items_search.remote.SearchPagingSource
 import com.jocode.model.search.Product
-import com.jocode.network.common.fold
-import com.jocode.network.common.makeSafeRequest
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 internal class SearchRepositoryImpl @Inject constructor(
     private val searchApi: SearchApi,
 ) : SearchRepository {
-    override suspend fun getSearchContent(
-        query: String,
-        siteId: String,
-    ): Result<Flow<List<Product>>> {
-        val response = makeSafeRequest { searchApi.searchProducts(query = query, siteId = siteId) }
-        return response.fold(
-            onSuccess = { data ->
-                val items = data.results.map {
-                    it.toDomain()
-                }
-                Result.success(flowOf(items))
-            },
-            onError = { _, message ->
-                Result.failure(Exception(message))
-            },
-            onException = {
-                Result.failure(it)
-            }
-        )
-    }
+
+    override fun getSearchPagingSource(query: String): Flow<PagingData<Product>> =
+        Pager(
+            config = PagingConfig(
+                pageSize = 10,
+                enablePlaceholders = false,
+                prefetchDistance = 2
+            ),
+            pagingSourceFactory = { SearchPagingSource(searchApi, query) }
+        ).flow
 
 }
