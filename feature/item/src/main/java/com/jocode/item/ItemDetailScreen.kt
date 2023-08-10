@@ -1,9 +1,11 @@
 package com.jocode.item
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,6 +15,7 @@ import com.jocode.components.LottieContent
 import com.jocode.item.components.ItemAppBar
 import com.jocode.item.navigation.ItemDetailContent
 import com.jocode.meli_mobiletest.R
+import com.jocode.ui.theme.surfaceColor
 
 @Composable
 fun ItemDetailScreen(
@@ -31,6 +34,7 @@ fun ItemDetailScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.surfaceColor)
                 .padding(paddingValues)
         ) {
             when (uiState) {
