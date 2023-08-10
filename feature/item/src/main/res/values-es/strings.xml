@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="product">Producto</string>
+    <string name="description">Descripción</string>
+    <string name="buy_now">Comprar ahora</string>
+    <string name="add_to_cart">Agregar al carrito</string>
+    <string name="sold_by">%1$s | %2$d vendidos</string>
+    <string name="new_product">Nuevo</string>
+    <string name="used_product">Usado</string>
+    <string name="item_load_failed">Se ha producido un error al cargar el producto.</string>
+</resources>

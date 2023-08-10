@@ -1,14 +1,17 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.example.meli_mobiletest"
+    namespace = "com.jocode.meli_mobiletest"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.meli_mobiletest"
+        applicationId = "com.jocode.meli_mobiletest"
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
         versionCode = ProjectConfig.versionCode
@@ -36,7 +39,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.6"
+        kotlinCompilerExtensionVersion = ProjectConfig.composeCompilerVersion
     }
 }
 
@@ -59,11 +62,28 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    implementation(libs.timber)
+    implementation(libs.coil)
+    implementation(libs.accompanist.systemuicontroller)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Splash
+    implementation(libs.androidx.splash)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Modules
+    implementation(project(":core:ui"))
+    implementation(project(":core:model"))
+    implementation(project(":feature:search"))
+    implementation(project(":feature:item"))
 }

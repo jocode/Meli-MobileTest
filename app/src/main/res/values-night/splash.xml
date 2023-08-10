@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Splash Screen Theme. -->
+    <style name="Theme.MeliMobileTest.AppSplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_dark_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/app_icon</item>
+        <item name="windowSplashScreenAnimationDuration">400</item>
+        <item name="postSplashScreenTheme">@style/Theme.MeliMobileTest</item>
+
+        <!-- Status bar and Nav bar configs -->
+        <item name="android:statusBarColor">@color/splash_dark_bg</item>
+        <item name="android:navigationBarColor">@color/splash_dark_bg</item>
+    </style>
+
+</resources>

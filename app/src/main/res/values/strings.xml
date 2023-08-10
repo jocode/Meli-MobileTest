@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Meli-MobileTest</string>
+    <string name="app_name" translatable="false">MeliApp</string>
+
+    <!-- Home -->
+    <string name="search">Search</string>
+    <string name="search_description">What are you looking for?</string>
+    <string name="clear_search_description">Clear search</string>
+    <string name="search_placeholder">Search in Mercado Libre</string>
+    <string name="empty_products">Ups! We didn\'t find anything.</string>
+    <string name="image_description">Product image</string>
 </resources>

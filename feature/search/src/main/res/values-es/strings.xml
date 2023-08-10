@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lookup_search_hint">Search</string>
+    <string name="looking_for_something">¿Qué deseas comprar hoy?</string>
+    <string name="something_went_wrong">Algo salió mal.</string>
+    <string name="available_quantity">Disponible %1$d</string>
+</resources>
